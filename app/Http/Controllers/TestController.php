@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    public function test()
+//    public function test()
+//    {
+//        return view('welcome');
+//    }
+
+    public function __invoke()
     {
-        return view('welcome');
+
     }
 }
