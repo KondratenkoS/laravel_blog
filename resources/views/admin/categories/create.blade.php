@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">Додати категорію</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -25,14 +25,12 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2">
-                        <a type="text" href="{{ route('admin.categories.create') }}" class="btn btn-block btn-primary">
-                            Додати категорію
-                        </a>
-                    </div>
-                    <div class="col-12 mt-3">
-                        Категорії
-                    </div>
+                    <form action="" class="col-3">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Назва категорії">
+                        </div>
+                        <input type="submit" class="btn btn-block btn-success col-3" value="Додати">
+                    </form>
                 </div>
             </div><!--/. container-fluid -->
         </section>
