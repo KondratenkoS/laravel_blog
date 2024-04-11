@@ -25,9 +25,13 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <form action="" class="col-3">
+                    <form action="{{ route('admin.categories.store') }}" method="POST" class="col-3">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Назва категорії">
+                            <input type="text" name="title" class="form-control" placeholder="Назва категорії">
+                            @error('title')
+                                <div class="text-danger">Поле має бути заповнено!</div>
+                            @enderror
                         </div>
                         <input type="submit" class="btn btn-block btn-success col-3" value="Додати">
                     </form>
