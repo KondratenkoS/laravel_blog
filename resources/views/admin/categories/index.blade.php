@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-5 mt-3">
+                    <div class="col-7 mt-3">
                         <div class="card">
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
@@ -40,7 +40,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Назва категорії</th>
-                                        <th>Редагувати</th>
+                                        <th colspan="2" class="text-center">Дії до категорії</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -48,9 +48,16 @@
                                         <tr>
                                             <td>{{ $category->id }}</td>
                                             <td>{{ $category->title }}</td>
-                                            <td><a href="{{ route('admin.categories.show', $category->id) }}">
-                                                    <i class="far fa-eye"></i>
-                                                </a></td>
+                                            <td>
+                                                <a href="{{ route('admin.categories.show', $category->id) }}">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.categories.edit', $category->id) }}">
+                                                    <i class="fas fa-edit text-success"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>

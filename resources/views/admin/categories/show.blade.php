@@ -7,8 +7,11 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">{{ $category->title }}</h1>
+                    <div class="col-sm-6 d-flex align-items-center">
+                        <h1 class="m-0 mr-2 align-center">{{ $category->title }}</h1>
+                        <a href="{{ route('admin.categories.edit', $category->id) }}">
+                            <i class="fas fa-edit text-success"></i>
+                        </a>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -24,13 +27,6 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-2">
-                        <a type="text" href="{{ route('admin.categories.create') }}" class="btn btn-block btn-primary">
-                            Додати категорію
-                        </a>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-5 mt-3">
                         <div class="card">
