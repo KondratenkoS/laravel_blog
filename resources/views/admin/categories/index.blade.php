@@ -40,7 +40,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Назва категорії</th>
-                                        <th colspan="2" class="text-center">Дії до категорії</th>
+                                        <th colspan="3" class="text-center">Дії до категорії</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -57,6 +57,15 @@
                                                 <a href="{{ route('admin.categories.edit', $category->id) }}">
                                                     <i class="fas fa-edit text-success"></i>
                                                 </a>
+                                            </td>
+                                            <td>
+                                                <form action={{ route("admin.categories.delete", $category->id) }} method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="border-0 bg-transparent">
+                                                        <i class="fas fa-trash text-danger"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
