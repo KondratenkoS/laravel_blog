@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Редагувати категорію</h1>
+                        <h1 class="m-0">Додати категорію</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -25,17 +25,15 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <form action="{{ route('admin.categories.update', $category->id) }}" method="POST" class="col-3">
+                    <form action="{{ route('admin.category.store') }}" method="POST" class="col-3">
                         @csrf
-                        @method('PATCH')
                         <div class="form-group">
-                            <input type="text" name="title" class="form-control" placeholder="Назва категорії"
-                            value="{{ $category->title }}">
+                            <input type="text" name="title" class="form-control" placeholder="Назва категорії">
                             @error('title')
                                 <div class="text-danger">Поле має бути заповнено!</div>
                             @enderror
                         </div>
-                        <input type="submit" class="btn btn-block btn-success col-3" value="Оновити">
+                        <input type="submit" class="btn btn-block btn-success col-3" value="Додати">
                     </form>
                 </div>
             </div><!--/. container-fluid -->

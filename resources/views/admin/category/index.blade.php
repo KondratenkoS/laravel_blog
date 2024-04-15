@@ -26,7 +26,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-2">
-                        <a type="text" href="{{ route('admin.categories.create') }}" class="btn btn-block btn-primary">
+                        <a type="text" href="{{ route('admin.category.create') }}" class="btn btn-block btn-primary">
                             Додати категорію
                         </a>
                     </div>
@@ -49,17 +49,17 @@
                                             <td>{{ $category->id }}</td>
                                             <td>{{ $category->title }}</td>
                                             <td>
-                                                <a href="{{ route('admin.categories.show', $category->id) }}">
+                                                <a href="{{ route('admin.category.show', $category->id) }}">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.categories.edit', $category->id) }}">
+                                                <a href="{{ route('admin.category.edit', $category->id) }}">
                                                     <i class="fas fa-edit text-success"></i>
                                                 </a>
                                             </td>
                                             <td>
-                                                <form action={{ route("admin.categories.delete", $category->id) }} method="POST">
+                                                <form action={{ route("admin.category.delete", $category->id) }} method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="border-0 bg-transparent">
