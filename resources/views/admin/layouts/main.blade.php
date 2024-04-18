@@ -61,6 +61,8 @@
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 <!-- Summernote -->
 <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <script>
     $(function () {
         // Summernote
@@ -76,6 +78,9 @@
             ]
         })
     })
+    $(function () {
+        bsCustomFileInput.init();
+    });
 </script>
 </body>
 </html>

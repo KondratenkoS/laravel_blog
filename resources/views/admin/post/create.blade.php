@@ -25,7 +25,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <form action="{{ route('admin.post.store') }}" method="POST">
+                    <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group w-50">
                             <input type="text" name="title" class="form-control" placeholder="Назва посту"
@@ -39,6 +39,30 @@
                             @error('content')
                             <div class="text-danger">Поле має бути заповнено!</div>
                             @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Зображення превью</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="preview_image">
+                                    <label class="custom-file-label">Оберіть файл</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Завантажити</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Основне зображення</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="main_image">
+                                    <label class="custom-file-label">Оберіть файл</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Завантажити</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-block btn-success col-3" value="Додати">
