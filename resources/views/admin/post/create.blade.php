@@ -25,15 +25,24 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <form action="{{ route('admin.post.store') }}" method="POST" class="col-3">
+                    <form action="{{ route('admin.post.store') }}" method="POST">
                         @csrf
-                        <div class="form-group">
-                            <input type="text" name="title" class="form-control" placeholder="Назва посту">
+                        <div class="form-group w-50">
+                            <input type="text" name="title" class="form-control" placeholder="Назва посту"
+                                   value="{{ old('title') }}">
                             @error('title')
                                 <div class="text-danger">Поле має бути заповнено!</div>
                             @enderror
                         </div>
-                        <input type="submit" class="btn btn-block btn-success col-3" value="Додати">
+                        <div class="form-group">
+                            <textarea id="summernote" name="content">{{ old('content') }}</textarea>
+                            @error('content')
+                            <div class="text-danger">Поле має бути заповнено!</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-block btn-success col-3" value="Додати">
+                        </div>
                     </form>
                 </div>
             </div><!--/. container-fluid -->
