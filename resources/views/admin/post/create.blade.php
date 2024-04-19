@@ -41,7 +41,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">Зображення превью</label>
+                            <label>Зображення превью</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="preview_image">
@@ -51,9 +51,12 @@
                                     <span class="input-group-text">Завантажити</span>
                                 </div>
                             </div>
+                            @error('preview_image')
+                                <div class="text-danger">Оберіть зображення</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">Основне зображення</label>
+                            <label>Основне зображення</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="main_image">
@@ -63,6 +66,20 @@
                                     <span class="input-group-text">Завантажити</span>
                                 </div>
                             </div>
+                            @error('main_image')
+                            <div class="text-danger">Оберіть зображення</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Обрати категорію</label>
+                            <select class="form-control"  name="category_id">
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                        {{ $category->id == old('category_id') ? 'selected' : '' }}>
+                                        {{ $category->title }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-block btn-success col-3" value="Додати">

@@ -82,5 +82,11 @@
         bsCustomFileInput.init();
     });
 </script>
+<style>
+  /*изменение кнопки "Browse" в добавлении изображений*/
+    .custom-file-input:lang(en)~.custom-file-label::after {
+        content: "...";
+    }
+</style>
 </body>
 </html>
