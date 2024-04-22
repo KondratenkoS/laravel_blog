@@ -31,7 +31,7 @@
                             <input type="text" name="title" class="form-control" placeholder="Назва посту"
                                    value="{{ old('title') }}">
                             @error('title')
-                                <div class="text-danger">Поле має бути заповнено!</div>
+                            <div class="text-danger">Поле має бути заповнено!</div>
                             @enderror
                         </div>
                         <div class="form-group">
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             @error('preview_image')
-                                <div class="text-danger">Оберіть зображення</div>
+                            <div class="text-danger">Оберіть зображення</div>
                             @enderror
                         </div>
                         <div class="form-group">
@@ -72,11 +72,24 @@
                         </div>
                         <div class="form-group">
                             <label>Обрати категорію</label>
-                            <select class="form-control"  name="category_id">
+                            <select class="form-control" name="category_id">
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}"
-                                        {{ $category->id == old('category_id') ? 'selected' : '' }}>
+                                        {{ $category->id == old('category_id') ? ' selected' : '' }}>
                                         {{ $category->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Обрати теги</label>
+                            <select class="select2" multiple="multiple" data-placeholder="Оберіть теги"
+                                    name="tags_id[]"
+                                    style="width: 100%;">
+                                @foreach($tags as $tag)
+                                    <option value="{{ $tag->id }}"
+                                    {{ is_array(old('tags_id')) && in_array($tag->id, old('tags_id')) ? ' selected' : '' }}>
+                                        {{ $tag->title }}
                                     </option>
                                 @endforeach
                             </select>
