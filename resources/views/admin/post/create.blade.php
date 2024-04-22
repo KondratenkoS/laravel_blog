@@ -82,7 +82,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Обрати теги</label>
+                            <label>Обрати тег(и)</label>
                             <select class="select2" multiple="multiple" data-placeholder="Оберіть теги"
                                     name="tags_id[]"
                                     style="width: 100%;">
