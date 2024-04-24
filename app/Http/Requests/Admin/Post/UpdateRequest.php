@@ -31,4 +31,19 @@ class UpdateRequest extends FormRequest
             'tags_id.*' => 'nullable|integer|exists:tags,id',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Поле важливе для заповнення!',
+            'title.max:25' => 'Не має перевищувати 25 символів!',
+            'content.required' => 'Поле важливе для заповнення!',
+            'preview_image.required' => 'Поле важливе для заповнення!',
+            'preview_image.file' => 'Оберіть файл!',
+            'main_image.required' => 'Поле важливе для заповнення!',
+            'main_image.file' => 'Оберіть файл!',
+            'category_id.required' => 'Поле важливе для заповнення!',
+            'tags_id.array' => 'Оберіть теги!',
+        ];
+    }
 }

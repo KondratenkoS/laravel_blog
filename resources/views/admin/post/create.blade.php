@@ -31,13 +31,13 @@
                             <input type="text" name="title" class="form-control" placeholder="Назва посту"
                                    value="{{ old('title') }}">
                             @error('title')
-                            <div class="text-danger">Поле має бути заповнено!</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
                             <textarea id="summernote" name="content">{{ old('content') }}</textarea>
                             @error('content')
-                            <div class="text-danger">Поле має бути заповнено!</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             @error('preview_image')
-                            <div class="text-danger">Оберіть зображення</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                             @error('main_image')
-                            <div class="text-danger">Оберіть зображення</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
@@ -93,6 +93,9 @@
                                     </option>
                                 @endforeach
                             </select>
+                            @error('tags_id')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-block btn-success col-3" value="Додати">
