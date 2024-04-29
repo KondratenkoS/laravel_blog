@@ -4,18 +4,30 @@
     <div class="sidebar">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
+                <a href="{{ route('admin.user.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                        Користувачі
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('admin.post.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-book"></i>
                     <p>
                         Пости
                     </p>
                 </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('admin.category.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-th-list"></i>
                     <p>
                         Категорії
                     </p>
                 </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('admin.tag.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-tags"></i>
                     <p>
