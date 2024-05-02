@@ -22,8 +22,10 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string|max:25',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $this->user_id,
+            'user_id' => 'required|integer|exists:users,id',
+            'role' => 'required|integer',
         ];
     }
 
@@ -31,9 +33,10 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name.required' => 'Поле важливе для заповнення',
+            'name.unique' => 'Вказане ім\'я вже зайняте',
             'name.string' => 'Має бути строкою',
             'email.required' => 'Поле важливе для заповнення',
-            'email.unique' => 'Данный email вже зайнятий',
+            'email.unique' => 'Вказаний email вже зайнятий',
             'email.email' => 'Введіть корректний email',
         ];
     }

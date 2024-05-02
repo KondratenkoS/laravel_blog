@@ -32,15 +32,32 @@
                             <input type="text" name="name" class="form-control" placeholder="Ім'я користувача"
                             value="{{ $user->name }}">
                             @error('name')
-                                <div class="text-danger">Поле має бути заповнено!</div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
                             <input type="text" name="email" class="form-control" placeholder="Ваш email"
                                    value="{{ $user->email }}">
                             @error('email')
-                            <div class="text-danger">Поле має бути заповнено!</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Обрати роль користувача</label>
+                            <select class="form-control" name="role">
+                                @foreach($roles as $id => $role)
+                                    <option value="{{ $id }}"
+                                        {{ $id == $user->role ? ' selected' : '' }}>
+                                        {{ $role }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="user_id" value="{{ $user->id }}">
                         </div>
                         <input type="submit" class="btn btn-block btn-success col-3" value="Оновити">
                     </form>
