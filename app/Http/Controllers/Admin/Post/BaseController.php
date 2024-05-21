@@ -11,6 +11,7 @@ class BaseController extends Controller
 
     public function __construct(PostService $service)
     {
+        $this->middleware(['auth', 'isAdmin']);
         $this->service = $service;
     }
 }

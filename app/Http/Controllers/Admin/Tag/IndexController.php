@@ -7,6 +7,10 @@ use App\Models\Tag;
 
 class IndexController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isAdmin']);
+    }
     public function __invoke()
     {
         $tags = Tag::all();

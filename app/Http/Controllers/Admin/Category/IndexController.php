@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isAdmin']);
+    }
     public function __invoke()
     {
         $categories = Category::all();

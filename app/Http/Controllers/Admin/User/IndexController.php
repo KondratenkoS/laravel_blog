@@ -7,6 +7,10 @@ use App\Models\User;
 
 class IndexController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isAdmin']);
+    }
     public function __invoke()
     {
         $users = User::all();
