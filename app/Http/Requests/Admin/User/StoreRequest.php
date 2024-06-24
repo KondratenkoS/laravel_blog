@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
         return [
             'name' => 'required|string|max:25',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string',
+//            'password' => 'required|string',
             'role' => 'required|integer',
         ];
     }
@@ -38,7 +38,7 @@ class StoreRequest extends FormRequest
             'email.required' => 'Поле важливе для заповнення',
             'email.unique' => 'Вказаний email вже зайнятий',
             'email.email' => 'Введіть корректний email',
-            'password.required' => 'Поле важливе для заповнення'
+//            'password.required' => 'Поле важливе для заповнення'
         ];
     }
 }
