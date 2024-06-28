@@ -22,7 +22,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 
 Route::group(['namespace' => 'App\Http\Controllers\Admin',
     'prefix' => 'admin',
-//    'middleware' => [AdminMiddleware::class],
+    'middleware' => ['verified'],
 ],
     function () {
         Route::group(['namespace' => 'Main'], function () {
@@ -71,6 +71,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin',
     }
 );
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
