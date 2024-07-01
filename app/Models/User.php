@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Notifications\SendVerifyWithQueueNotification;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,6 +17,14 @@ class User extends Authenticatable implements MustVerifyEmail
 
     const ROLE_ADMIN = 0;
     const ROLE_USER = 1;
+
+    public static function getRoles()
+    {
+        return [
+            self::ROLE_ADMIN => 'Адміністратор',
+            self::ROLE_USER => 'Користувач',
+        ];
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -48,11 +58,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
-    public static function getRoles()
-    {
-        return [
-            self::ROLE_ADMIN => 'Адміністратор',
-            self::ROLE_USER => 'Користувач',
-        ];
-    }
+   public function sendEmailVerificationNotification()
+   {
+       $this->notify(new SendVerifyWithQueueNotification());
+   }
 }
