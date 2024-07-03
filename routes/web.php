@@ -20,6 +20,24 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 });
 
 
+Route::group(['namespace' => 'App\Http\Controllers\User',
+    'prefix' => 'user',
+    'middleware' => ['auth', 'verified'],
+], function () {
+        Route::group(['namespace' => 'Main'], function () {
+            Route::get('/', 'IndexController')->name('user.main.index');
+        });
+
+        Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
+            Route::get('/', 'IndexController')->name('user.comment.index');
+        });
+
+        Route::group(['namespace' => 'Like', 'prefix' => 'likes'], function () {
+            Route::get('/', 'IndexController')->name('user.like.index');
+        });
+});
+
+
 Route::group(['namespace' => 'App\Http\Controllers\Admin',
     'prefix' => 'admin',
     'middleware' => ['verified'],
