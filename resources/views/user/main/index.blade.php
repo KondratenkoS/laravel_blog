@@ -26,7 +26,7 @@
 
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="{{ route('admin.user.index') }}" class="info-box">
+                        <a href="{{ route('user.like.index') }}" class="info-box">
                             <span class="info-box-icon bg-danger elevation-1"><i class="nav-icon fas fa-heart"></i></span>
 
                             <div class="info-box-content">
@@ -39,7 +39,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="{{ route('admin.post.index') }}" class="info-box">
+                        <a href="{{ route('user.comment.index') }}" class="info-box">
                             <span class="info-box-icon bg-info elevation-1"><i class="nav-icon fas fa-comment"></i></span>
 
                             <div class="info-box-content">

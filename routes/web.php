@@ -34,6 +34,7 @@ Route::group(['namespace' => 'App\Http\Controllers\User',
 
         Route::group(['namespace' => 'Like', 'prefix' => 'likes'], function () {
             Route::get('/', 'IndexController')->name('user.like.index');
+            Route::delete('/{post}', 'DeleteController')->name('user.like.delete');
         });
 });
 
