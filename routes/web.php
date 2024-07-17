@@ -30,6 +30,9 @@ Route::group(['namespace' => 'App\Http\Controllers\User',
 
         Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
             Route::get('/', 'IndexController')->name('user.comment.index');
+            Route::get('/{comment}/edit', 'EditController')->name('user.comment.edit');
+            Route::patch('/{comment}', 'UpdateController')->name('user.comment.update');
+            Route::delete('/{comment}', 'DeleteController')->name('user.comment.delete');
         });
 
         Route::group(['namespace' => 'Like', 'prefix' => 'likes'], function () {
