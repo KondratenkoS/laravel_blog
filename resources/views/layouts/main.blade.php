@@ -22,6 +22,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.index') }}"><h1>Стіна</h1></a>
                     </li>
+                    <li class="nav-item">
+                        @guest()
+                                <a class="nav-link" href="{{ route('user.main.index') }}"><h1>Увійти</h1></a>
+                        @endguest
+                        @auth()
+                                <a class="nav-link" href="{{ route('user.main.index') }}"><h1>Персональний кабінет</h1></a>
+                        @endauth
+                    </li>
                 </ul>
             </div>
         </nav>

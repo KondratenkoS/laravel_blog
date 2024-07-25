@@ -9,6 +9,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">Головна сторінка</h1>
+                        <a href="{{ route('main.index') }}"><h4>До постів</h4></a>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -44,7 +45,7 @@
 
                             <div class="info-box-content">
                                 <span class="info-box-text">Ваші коментарі</span>
-                                <span class="info-box-number">5</span>
+                                <span class="info-box-number">{{ $comments->count() }}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </a>
