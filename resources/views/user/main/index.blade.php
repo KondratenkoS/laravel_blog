@@ -32,7 +32,7 @@
 
                             <div class="info-box-content">
                                 <span class="info-box-text">Пости які вам сподобались</span>
-                                <span class="info-box-number">12</span>
+                                <span class="info-box-number">{{ $posts->count() }}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </a>

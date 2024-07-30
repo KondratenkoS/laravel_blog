@@ -18,20 +18,31 @@
                     </div>
                 </div>
             </section>
+            <section class="py-3">
+                <form action="{{ route('post.likes.store', $post->id) }}" method="POST">
+                    @csrf
+                    <span>{{ $posts->liked_users_count }}</span>
+                    <button type="submit" class="border-0 bg-transparent">
+                        <i class="fa{{ auth()->user()->likedPosts->contains($post->id) ? 's' : 'r'}} fa-heart"></i>
+                    </button>
+                </form>
+            </section>
             <div class="row">
                 <div class="col-lg-9 mx-auto">
-                    <section class="related-posts">
-                        <h2 class="section-title mb-4" data-aos="fade-up">Схожі пости</h2>
-                        <div class="row">
-                            @foreach($relatedPosts as $relatedPost)
-                                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-                                    <img src="{{ asset('storage/' . $relatedPost->preview_image) }}" alt="related post" class="post-thumbnail">
-                                    <p class="post-category">{{ $relatedPost->category }}</p>
-                                    <a href="{{ route('post.show', $relatedPost->id) }}"><h5 class="post-title">{{ $relatedPost->title }}</h5></a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </section>
+                    @if($relatedPosts->count() > 0)
+                        <section class="related-posts">
+                            <h2 class="section-title mb-4" data-aos="fade-up">Схожі пости</h2>
+                            <div class="row">
+                                @foreach($relatedPosts as $relatedPost)
+                                    <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+                                        <img src="{{ asset('storage/' . $relatedPost->preview_image) }}" alt="related post" class="post-thumbnail">
+                                        <p class="post-category">{{ $relatedPost->category }}</p>
+                                        <a href="{{ route('post.show', $relatedPost->id) }}"><h5 class="post-title">{{ $relatedPost->title }}</h5></a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </section>
+                    @endif
                     <section class="comment-list mb-5">
                         <h2 class="section-title mb-5" data-aos="fade-up">Коментарі ({{ $post->comments->count() }})</h2>
                         @foreach($post->comments as $comment)
@@ -39,8 +50,8 @@
                                 <span class="username">
                                 <div>
                                     <h6>Автор коментаря: {{ $comment->user->name }}</h6>
-                                </div>
                                     <span class="text-muted float-right">{{ $comment->date->diffForHumans() }}</span>
+                                </div>
                             </span>
                                 {{ $comment->message }}
                             </div>

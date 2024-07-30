@@ -20,14 +20,17 @@
             <div class="collapse navbar-collapse" id="edicaMainNav">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('main.index') }}"><h1>Стіна</h1></a>
+                        <a class="nav-link" href="{{ route('main.index') }}"><h2>Стіна</h2></a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('category.index') }}"><h2>Категорії</h2></a>
                     </li>
                     <li class="nav-item">
                         @guest()
-                                <a class="nav-link" href="{{ route('user.main.index') }}"><h1>Увійти</h1></a>
+                                <a class="nav-link" href="{{ route('user.main.index') }}"><h2>Увійти</h2></a>
                         @endguest
                         @auth()
-                                <a class="nav-link" href="{{ route('user.main.index') }}"><h1>Персональний кабінет</h1></a>
+                                <a class="nav-link" href="{{ route('user.main.index') }}"><h2>Персональний кабінет</h2></a>
                         @endauth
                     </li>
                 </ul>
