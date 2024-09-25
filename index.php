@@ -1,2 +1,2 @@
 <?php
-    include "public/index.php";
+    include "resources/views/main/index.blade.php";
