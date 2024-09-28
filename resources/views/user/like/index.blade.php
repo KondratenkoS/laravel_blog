@@ -25,7 +25,7 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <div class="col-7 mt-3">
+                    <div class="col-4 mt-3">
                         <div class="card">
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
@@ -33,7 +33,6 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Назва посту</th>
-                                        <th colspan="2" class="text-center">Дії до посту</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -41,20 +40,6 @@
                                         <tr>
                                             <td>{{ $post->id }}</td>
                                             <td>{{ $post->title }}</td>
-                                            <td>
-                                                <a href="{{ route('admin.post.show', $post->id) }}">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <form action={{ route("user.like.delete", $post->id) }} method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="border-0 bg-transparent">
-                                                        <i class="fas fa-trash text-danger"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
