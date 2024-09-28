@@ -21,7 +21,7 @@
             <section class="py-3">
                 <form action="{{ route('post.likes.store', $post->id) }}" method="POST">
                     @csrf
-                    <span>{{ $posts->liked_users_count }}</span>
+                    <span>{{ $post->liked_users_count }}</span>
                     <button type="submit" class="border-0 bg-transparent">
                         <i class="fa{{ auth()->user()->likedPosts->contains($post->id) ? 's' : 'r'}} fa-heart"></i>
                     </button>
@@ -49,7 +49,7 @@
                             <div class="comment-text mb-3">
                                 <span class="username">
                                 <div>
-                                    <h6>Автор коментаря: {{ $comment->user->name }}</h6>
+                                    <h6>Автор коментаря: {{ $comment->user->name ?? "Автор комментаря невідомий" }}</h6>
                                     <span class="text-muted float-right">{{ $comment->date->diffForHumans() }}</span>
                                 </div>
                             </span>
