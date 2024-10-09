@@ -7,7 +7,7 @@
             <h1 class="edica-page-title" data-aos="fade-up">{{ $post->title }}</h1>
             <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">• {{ $date->translatedFormat('F d') }}, {{ $date->year }} • {{ $date->format('H:i') }} • {{ $post->comments->count() }} Коментар(ів)</p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
-                <div class="row">
+                <div class="row w-50">
                     <img src="{{ asset('storage/' . $post->main_image) }}" alt="featured image" class="w-100">
                 </div>
             </section>
@@ -23,7 +23,7 @@
                     @csrf
                     <span>{{ $post->liked_users_count }}</span>
                     <button type="submit" class="border-0 bg-transparent">
-                        <i class="fa{{ auth()->user()->likedPosts->contains($post->id) ? 's' : 'r'}} fa-heart"></i>
+                        <i class="fa{{ auth()->user()?->likedPosts->contains($post->id) ? 's' : 'r'}} fa-heart"></i>
                     </button>
                 </form>
             </section>

@@ -8,7 +8,7 @@
                 <div class="row">
                     @foreach($posts as $post)
                         <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
-                            <div class="blog-post-thumbnail-wrapper">
+                            <div class="blog-post-thumbnail-wrapper w-50">
                                 <img src="{{ 'storage/' . $post->preview_image }}" alt="blog post">
                             </div>
                             <p class="blog-post-category">{{ $post->categories->title }}</p>
